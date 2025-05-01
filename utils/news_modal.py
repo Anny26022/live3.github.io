@@ -125,16 +125,32 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Improved, clean compact news card renderer ---
+import re
+
+def usd_million_to_inr_crore(match):
+    """
+    Convert USD million to INR crore using a fixed conversion rate (1 USD = 83 INR).
+    Example: $100 million USD → ₹830 crore
+    """
+    usd_million = float(match.group(1))
+    inr = usd_million * 83_00_00_000  # 1 million USD = 1,000,000 * 83 INR
+    crore = inr / 1e7  # 1 crore = 10,000,000
+    return f"₹{crore:,.2f} crore"
+
 def render_compact_news_card(item, sentiment_label, sentiment_color):
     published = item.get('published date', 'N/A')
     try:
         published_str = pd.to_datetime(published).tz_localize('UTC').tz_convert('Asia/Kolkata').strftime('%a, %d %b %Y %I:%M:%S %p IST')
     except Exception:
         published_str = published
+    title = item.get('title', '')
+    # Convert USD million to INR crore in the title
+    title = re.sub(r"\$\s?(\d+(?:\.\d+)?)\s?(?:million|mn|m)\b", usd_million_to_inr_crore, title, flags=re.IGNORECASE)
+    title = re.sub(r"(\d+(?:\.\d+)?)\s?(?:million|mn|m)\s?(?:USD|usd|US dollars|US\$|dollars)\b", usd_million_to_inr_crore, title, flags=re.IGNORECASE)
     st.markdown(f"""
         <div class="compact-news-card">
             <div class="news-row">
-                <a href="{item.get('url','')}" target="_blank" class="news-title">{item.get('title','')}</a>
+                <a href="{item.get('url','')}" target="_blank" class="news-title">{title}</a>
                 <span class="news-sentiment" style="color:{sentiment_color};">{sentiment_label}</span>
             </div>
             <div class="news-date">{published_str}</div>

@@ -33,89 +33,102 @@ if current_url == 'Advanced_Scanner':
 
 # Define navigation HTML structure
 navigation_html = """
-<div class="glass-navbar">
+<div class="glass-navbar material-ui-navbar">
     <nav>
         <ul>
-            <li><a href="." class="nav-link"><i class="material-icons">home</i> Home</a></li>
-            <li><a href="Custom_EMA_Scanner" class="nav-link"><i class="material-icons">show_chart</i> EMA Scanner</a></li>
-            <li><a href="Stock_News" class="nav-link"><i class="material-icons">article</i> Stock News</a></li>
-            <li><a href="NSE_Past_IPO_Issues" class="nav-link"><i class="material-icons">new_releases</i> IPO Issues</a></li>
-            <li><a href="NSE_Volume_Gainers" class="nav-link"><i class="material-icons">trending_up</i> Volume Gainers</a></li>
-            <li><a href="Screener_Company_Financials" class="nav-link"><i class="material-icons">assessment</i> Financials</a></li>
-            <li><a href="price_bands" class="nav-link"><i class="material-icons">price_change</i> Price Bands</a></li>
-            <li><a href="results_calendar" class="nav-link"><i class="material-icons">table_chart</i> Results Calendar</a></li>
+            <li><a href="/" class="nav-link"><span class="material-icons">home</span>Home</a></li>
+            <li><a href="/Custom_Scanner" class="nav-link"><span class="material-icons">show_chart</span>Custom Scanner</a></li>
+            <li><a href="/TOP_GAINERS" class="nav-link"><span class="material-icons">trending_up</span>Top Gainers</a></li>
+            <li><a href="/Analytical_Heatmap" class="nav-link"><span class="material-icons">analytics</span>Analytical Heatmap</a></li>
+            <li><a href="/Results_Calendar" class="nav-link"><span class="material-icons">event</span>Results Calendar</a></li>
+            <li><a href="/Result_Timings_Simplified" class="nav-link"><span class="material-icons">schedule</span>Result Timings</a></li>
+            <li><a href="/Realtime_Stock_News_Feed" class="nav-link"><span class="material-icons">article</span>Realtime Stock News</a></li>
+            <li><a href="/LIVE_Exchange_Filings_Feed" class="nav-link"><span class="material-icons">feed</span>LIVE Exchange Filings</a></li>
+            <li><a href="/Price_Bands" class="nav-link"><span class="material-icons">price_change</span>Price Bands</a></li>
+            <li><a href="/Fundamental_Screener" class="nav-link"><span class="material-icons">search</span>Fundamental Screener</a></li>
+            <li><a href="/INDIAN_FINANCIALS" class="nav-link"><span class="material-icons">account_balance</span>Indian Financials</a></li>
+            <li><a href="/GLOBAL_FINANCIALS" class="nav-link"><span class="material-icons">public</span>Global Financials</a></li>
+            <li><a href="/News_Search_Engine" class="nav-link"><span class="material-icons">search</span>News Search Engine</a></li>
+            <li><a href="/Performance_Scanner" class="nav-link"><span class="material-icons">bar_chart</span>Performance Scanner</a></li>
+            <li><a href="/NSE_Volume_Gainers" class="nav-link"><span class="material-icons">equalizer</span>NSE Volume Gainers</a></li>
+            <li><a href="/200_DAY_Uptrend" class="nav-link"><span class="material-icons">trending_up</span>200 Day Uptrend</a></li>
         </ul>
     </nav>
 </div>
-
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
     @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-    
-    /* Modern Navigation Bar with Glass Morphism */
-    .glass-navbar {
-        background: rgba(32, 33, 35, 0.9);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 8px;
-        margin: 0 0 20px 0;
-        padding: 4px;
-    }
-    
-    .glass-navbar nav {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .glass-navbar ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
-        list-style: none;
-        margin: 0;
+    .material-ui-navbar {
+        background: rgba(32, 33, 35, 0.92);
+        border-radius: 10px;
+        margin: 16px auto 0 auto;
+        max-width: 740px;
         padding: 0;
-        justify-content: center;
+        box-shadow: 0 1px 8px 0 rgba(34,62,86,0.07);
     }
-    
-    .glass-navbar .nav-link {
+    .material-ui-navbar nav ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .material-ui-navbar nav ul li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    .material-ui-navbar .nav-link {
         display: flex;
         align-items: center;
-        color: rgba(255, 255, 255, 0.9);
+        gap: 5px;
+        color: #fff;
+        background: none;
+        border-radius: 5px;
+        padding: 5px 4px 5px 10px;
+        font-size: 0.89rem;
+        font-weight: 500;
+        font-family: 'Inter', sans-serif;
         text-decoration: none;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        transition: background-color 0.2s;
-        white-space: nowrap;
+        transition: background 0.13s, color 0.13s;
+        width: 100%;
+        height: 100%;
+        min-height: 28px;
     }
-    
-    .glass-navbar .nav-link:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .glass-navbar .nav-link .material-icons {
-        font-size: 16px;
-        margin-right: 8px;
+    .material-ui-navbar .nav-link .material-icons {
+        font-size: 15px;
+        margin-right: 5px;
         vertical-align: middle;
     }
-    
-    .glass-navbar .nav-link.active {
-        background: rgba(255, 255, 255, 0.1);
+    .material-ui-navbar .nav-link:hover, .material-ui-navbar .nav-link.active {
+        background: rgba(255,255,255,0.09);
+        color: #90caf9;
     }
-    
-    @media (max-width: 768px) {
-        .glass-navbar ul {
-            flex-direction: column;
+    @media (max-width: 900px) {
+        .material-ui-navbar {
+            max-width: 98vw;
         }
-        .glass-navbar .nav-link {
+        .material-ui-navbar nav ul {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+        }
+    }
+    @media (max-width: 600px) {
+        .material-ui-navbar nav ul {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(16, 1fr);
+        }
+        .material-ui-navbar .nav-link {
             justify-content: flex-start;
-            padding: 8px;
+            padding: 5px 4px 5px 10px;
         }
     }
 </style>
 """
-
-# Display the navigation bar only once
 st.markdown(navigation_html, unsafe_allow_html=True)
 
 # --- Hide default Streamlit multipage navigation sidebar ---
