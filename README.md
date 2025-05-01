@@ -1,4 +1,4 @@
-# NSE Multi-EMA Stock Screener & Dashboard
+# TradingView Screener & Dashboard
 
 A modern, mobile-friendly Streamlit web app for advanced stock screening, analytics, and dashboards—focused on Indian and global markets (NSE/BSE and worldwide). Effortlessly scan for high-momentum stocks above multiple EMAs, visualize price bands, analyze company financials, and export results—all with an intuitive, responsive UI. **Supports cross-asset, cross-exchange, and global scanning using TradingView's data universe.**
 
@@ -82,31 +82,25 @@ A robust, extensible platform for:
 | **Advanced Scanner** | 🚦 | Powerful multi-asset scanner with advanced technical & fundamental filters for stocks, indices, forex, crypto, and more. |
 | **Stock News** | 📰 | Latest stock news dashboard. Fetches and displays headlines from external sources for market awareness. |
 | **Custom EMA Scanner** | 🧮 | Define your own EMA periods/thresholds for personalized scans on any instrument. Now also displays live news for each scanned symbol directly in the results. |
-| **NSE Past IPO Issues** | 🏦 | Analyze historical IPOs on NSE for research and trend spotting. |
-| **NSE 200EMA Uptrend** | 📈 | Scan NSE stocks above their 200-day EMA to find long-term uptrends. |
-| **NSE Volume Gainers** | 🔊 | Identify NSE stocks with significant volume spikes for potential trading setups. |
+| **Industry Visualization** | 🏭 | Visualize sector and industry data with interactive charts to spot trends and leaders. |
+| **Price Bands** | 💹 | Visualize stocks by price bands, export data, and see last update times. |
+| **Results Calendar** | 🗓️ | Track upcoming company results and board meetings, filter and export by date. |
 | **Company Financials** | 💼 | Deep-dive into company financials, ratios, and key metrics for listed stocks. |
-| **Industry Visualization** | 🏭 | Visualize sector and industry data with charts to spot trends and leaders. |
-| **NSE Turnover Scanner** | 💸 | Scan NSE stocks by turnover to find liquid and active stocks. |
-| **Fundamental Strong Stocks** | 🏅 | List fundamentally strong stocks based on financial health and quality. |
-| **Index Max Return** | 🏆 | Analyze indices with the highest returns over a selected period. |
-| **Price Bands** | 🎯 | Visualize instruments by price bands for distribution and clustering analysis. |
-| **Result Timing** | ⏰ | Analyze timing of scan results for backtesting and signal tracking. |
-| **Results Calendar** | 📅 | Calendar view of scan results to track signals and events by date. |
-
-> _Each page is accessible from the Streamlit sidebar. Pages are modular—add, remove, or customize as your workflow evolves!_
+| **Global Financials** | 🌎 | View and compare global company financials and ratios. |
+| **Performance Scanner** | 🏆 | Analyze stock performance across custom metrics and timeframes. |
+| **News Search Engine** | 🔎 | Search and filter news across global and Indian stocks. |
+| **NSE Volume Gainers** | 🚧 | Identify NSE stocks with significant volume spikes for potential trading setups. |
+| **NSE 200EMA Uptrend** | 📈 | Scan NSE stocks above their 200-day EMA to find long-term uptrends. |
 
 ---
 
-## 📦 Installation & Quickstart
+## 🖼️ Screenshots
+_Add screenshots or GIFs here to showcase the UI and features._
 
-### Prerequisites
-- **Python 3.8+** (Recommended: 3.10+)
-- **pip** (Python package manager)
-- OS: Windows, macOS, or Linux
-- Browser: Chrome, Firefox, or Edge (latest)
+---
 
-### Steps
+## ⚡ Installation & Quickstart
+
 1. **Clone this repository:**
    ```bash
    git clone https://github.com/yourusername/globallivescanning.github.io.git
@@ -123,66 +117,35 @@ A robust, extensible platform for:
 
 #### Troubleshooting
 - If you encounter `ModuleNotFoundError`, ensure you're in the correct directory and using the right Python environment.
-- For Playwright-related errors, run: `playwright install` after pip install.
-- For port conflicts, use `streamlit run streamlit_app.py --server.port 8502`.
+- For Playwright errors, run `playwright install` after installing requirements.
 
 ---
 
-## 🧑‍💻 Usage Guide
+## 📝 Usage Guide
 
-### 1. Cross-Asset, Cross-Exchange Scanning
-- Select any asset class (stocks, indices, forex, crypto, etc.) and any exchange or region.
-- Define scan parameters and filters (EMA, price, volume, sector, etc.).
-- Run the scan to get results from across the globe in one unified dashboard.
-
-### 2. Multi-EMA Scanner
-- Navigate to **Advanced Scanner**.
-- Select desired EMAs, filters, and run the scan.
-- View results, copy tickers, or export to CSV.
-
-### 3. Custom EMA Scanner
-- Go to **Custom EMA Scanner**.
-- Define your own EMA periods and thresholds.
-- Run and analyze results interactively.
-
-### 4. Price Bands & Financials
-- Explore **Price Bands** for visual analytics.
-- Dive into **Company Financials** for detailed metrics.
-
-### 5. News & Calendar
-- Check **Stock News** for latest updates.
+- Use the sidebar to navigate between dashboards and scanners.
+- Configure filters and parameters for each scan.
+- Export results as CSV or copy tickers as needed.
 - Use **Results Calendar** to review results by date.
-
-### 6. Mobile/Tablet Usage
-- The app is fully responsive. For best experience, use in landscape mode on mobile.
-
----
-
-## ⚙️ Performance Optimization & Caching
-- The app uses Streamlit’s `@st.cache_data` decorator extensively to cache expensive API calls, news queries, and data processing, resulting in much faster reloads and reduced API usage.
-- News queries, full article fetches, and listing date lookups are all cached for optimal speed.
-- Efficient pandas operations and asynchronous fetching are used for high performance, even with large datasets.
-- UI and CSS are optimized for fast rendering on both desktop and mobile devices.
+- The app is fully responsive—use in landscape mode on mobile for best experience.
 
 ---
 
 ## ⚙️ Configuration & Customization
 
 ### Editing Scan Logic
-- Main scanner logic: `pages/02_Advanced_Scanner.py`
-- Custom EMA logic: `pages/03_Custom_EMA_Scanner.py`
+- Main scanner logic: `pages/02_📈_Custom_Scanner.py`
 - Add new dashboards: Create Python scripts in `pages/`
 
 ### Styling
 - Modify CSS in each page or shared `style.css` for colors, layout, and branding.
-- Example: Change color variables for a new theme.
 
 ### Data Sources
-- **TradingView Screener:** Powers cross-asset, cross-exchange, global scanning with SQL-like queries for all instrument types.
-- **Google Sheets:** News/dashboard data fetched as CSV via pandas.
-- **GNews:** Fetches latest news for any stock (supports global tickers).
-- **VaderSentiment:** Analyzes sentiment of news headlines.
-- **Pytz:** Handles timezone conversions for accurate date/time representation.
+- **TradingView Screener:** Cross-asset, global scanning with SQL-like queries.
+- **Google Sheets:** News/dashboard data as CSV via pandas.
+- **GNews:** Latest news for any stock (supports global tickers).
+- **VaderSentiment:** Sentiment analysis of news headlines.
+- **Pytz:** Timezone conversions for accurate date/time.
 
 ### Caching
 - Uses Streamlit’s `@st.cache_data` for fast reloads and reduced API calls.
@@ -224,7 +187,7 @@ A robust, extensible platform for:
   - `style.css` – Custom CSS for UI/UX.
 
 - **Main Dependencies:**
-  - `streamlit`, `tradingview-screener`, `pandas`, `numpy`, `plotly`, `openpyxl`, `beautifulsoup4`, `playwright`, `flask`, `werkzeug`, `requests`, `scikit-learn`, `tqdm`, `gnews`, `vaderSentiment`, `pytz`
+  - `streamlit`, `tradingview-screener`, `pandas`, `numpy`, `plotly`, `openpyxl`, `beautifulsoup4`, `playwright`, `flask`, `werkzeug`, `requests`, `scikit-learn`, `tqdm`, `gnews`, `vaderSentiment`, `pytz`, `tabulate`
 
 - **Security:**
   - No secrets or API keys required for public data sources.
